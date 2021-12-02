@@ -1,6 +1,6 @@
 # Article Fgtech Blog - 2021-11-30
 
-Assurez-vous d'avoir lancer la partie Vault en amont de ce test : [Vault-AutoUnseal](../vault)
+Assurez-vous d'avoir lancé la partie Vault en amont de ce test : [Vault-AutoUnseal](../vault)
 
 ## Lancement podtatohead - Intégration Vault
 
@@ -35,7 +35,7 @@ kubectl patch deployment -n $myns_vault podtato-body --patch "$(cat vault-inject
 
 Actualisez votre navigateur
 
-Mettez à jour main pour voir la vrai version de notre application
+Mettez à jour podtato-main pour voir la vraie version de notre application
 
 ```bash
 kubectl patch deployment -n $myns_vault podtato-main --patch "$(cat vault-injector-patch-main.yaml)"

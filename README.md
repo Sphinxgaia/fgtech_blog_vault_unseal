@@ -1,8 +1,8 @@
 # Article Fgtech Blog - 2021-11-30
 
-Dasn cet article, nous allons :
+Dans cet article, nous allons :
 
-- lancer plusieurs intances de Vault (en mode auto-unseal)
+- lancer plusieurs instances de Vault (en mode auto-unseal)
 
 - lancer l'application podtato-head
 

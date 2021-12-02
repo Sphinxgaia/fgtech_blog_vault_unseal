@@ -4,7 +4,7 @@ Dasn cet article, nous allons :
 
 - lancer plusieurs intances de Vault (en mode auto-unseal)
 
-- lancer l'application podtatohead
+- lancer l'application podtato-head
 
 - connecter l'application à Vault
 
@@ -12,7 +12,17 @@ Dasn cet article, nous allons :
 
 - tester la résilience de Vault & Kubernetes
 
-## Lancement de l'application podtatohead
+## Configuration de voter cluster k3d
+
+> Une erreur de timeout pour la création du loadbalancer peut arriver, je vous conseille de réduire le nombre de port sur les nodePorts (range 30000++)
+
+```bash
+k3d cluster create "podtato" \
+--agents 2 \
+-p "8080:80@loadbalancer" -p "8443:443@loadbalancer" -p "30000-30100:30000-30100@loadbalancer"
+```
+
+## Lancement de l'application podtato-head
 
 Lancer votre application :
 
@@ -52,7 +62,12 @@ Nous assumons donc que vous avez accès à votre cluster
 kubectl port-forward -n podtato-kubectl svc/podtato-main 9000:9000
 ```
 
+## Configurer votre environnement Vault
 
-## Intégration vault
+Boostrap des Vault
+
+[Documentation](./vault/bootstrap)
+
+### Intégration vault
 
 [Documentation](./fgtech_adds)

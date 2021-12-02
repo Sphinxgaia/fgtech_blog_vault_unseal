@@ -1,0 +1,14 @@
+spec:
+  template:
+    metadata:
+      annotations:
+        vault.hashicorp.com/agent-inject: 'true'
+        vault.hashicorp.com/role: 'podtato_vault'
+        vault.hashicorp.com/agent-inject-secret-VERSION: 'internal/podtato'
+        vault.hashicorp.com/secret-volume-path-VERSION: "/secret"
+        vault.hashicorp.com/agent-inject-template-VERSION: |
+          {{- with secret "internal/podtato" -}}
+          {{ .Data.data.version }}
+          {{- end -}}
+    spec:
+      serviceAccountName: podtato
